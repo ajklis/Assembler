@@ -1,0 +1,69 @@
+każde zajęcia to intro teoretyczne
+
+nasm, dosbox
+
+rozkaz - mała operacja którą może wykonać procesor
+dane - 01010110001 np
+
+i rozkaz i dane to zbiór 0 i 1
+
+rejestry - mechanizmy pozwalające na zarządzanie danymi, każdy ma 16 bitow, mozna podzielić na 2x8 bit
+AX = AH + AL - AKUMLUATOR (operacje arytmetyczne, logiczne, obsługa przerwań)
+BX = BH + BL - REJESTR BAZOWY 
+CX
+DX
+
+MOV AX, 1 - przenies do ax 1
+MOV AL, AH - przenies do al wartosc z ah
+DEC AL - odejmij 1 od al
+
+MOV AX, 0
+MOV DX, AX
+MOV BX, 6 <- to jest 6 jako adres pamięci, nie jako wartość
+
+CX = CH + CL - COUNTER
+MOV CX, 5
+LOOP:
+SUB CX, 1
+
+DX = DH + DL - DATA
+MOV DX, 45
+
+EAX - rejestry rozszerzone ogólnego przeznaczenia
+EBX
+ECX
+EDX
+
+SI - podobne do bx
+DI - podobne do si, zastosowane bardziej w stringach
+BP - base pointer, możemy przechodzić po wartościach
+SP - stack pointer, wskaźnik wierzchołka stosu
+
+CS
+DS
+ES
+SS
+
+IP - rejestr, wskazuje na następny rozkaz
+
+INT 21H - przerwanie systemowe
+
+MOV AH, 9
+MOV DX, LABEL
+INT 21H
+
+LABEL DB "CZESC$" // DB rezerwuje miejsce w pamieci ( Define Byte )
+
+MOV AX, 4C00H
+INT 21H
+
+INT 16H (obsługa klawiatury)
+
+MOV AH, 0
+INT 16H
+
+DB - define byte
+DW - define word (2bytes)
+DD - define doubleword (4b)
+DQ - define quadword (8b)
+DT - define ten
